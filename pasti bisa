@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ffe6eb, #fff0f5);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #333;
+    }
+
+    .container {
+        background: white;
+        padding: 50px 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        max-width: 400px;
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 40px;
+        color: #ff4d6d;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    button {
+        border: none;
+        padding: 15px 30px;
+        font-size: 18px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    #yesBtn {
+        background-color: #ff4d6d;
+        color: white;
+        transform: scale(1);
+    }
+
+    #yesBtn:hover {
+        background-color: #ff3355;
+    }
+
+    #noBtn {
+        background-color: #e0e0e0;
+        color: #333;
+    }
+
+    #noBtn:hover {
+        background-color: #d5d5d5;
+    }
+
+    .result {
+        margin-top: 30px;
+        font-size: 22px;
+        color: #ff4d6d;
+        display: none;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Will you be my Valentine? 💖</h1>
+
+    <div class="buttons">
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+    </div>
+
+    <div class="result" id="resultText">
+        YAYYY 💕 I knew it!!
+    </div>
+</div>
+
+<script>
+let yesBtn = document.getElementById("yesBtn");
+let noBtn = document.getElementById("noBtn");
+let result = document.getElementById("resultText");
+
+let yesSize = 1;
+let noSize = 1;
+
+noBtn.addEventListener("click", function() {
+    yesSize += 0.2; 
+    noSize -= 0.05;
+
+    if(noSize < 0.6) noSize = 0.6;
+
+    yesBtn.style.transform = `scale(${yesSize})`;
+    noBtn.style.transform = `scale(${noSize})`;
+});
+
+yesBtn.addEventListener("click", function() {
+    result.style.display = "block";
+});
+</script>
+
+</body>
+</html>
